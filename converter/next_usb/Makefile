@@ -35,10 +35,10 @@ endif
 # MCU name, you MUST set this to match the board you are using
 # type "make clean" after changing this, so all files will be rebuilt
 #MCU = at90usb162       # Teensy 1.0
-#MCU = atmega32u4       # Teensy 2.0
+MCU = atmega32u4       # Teensy 2.0
 #MCU = at90usb646       # Teensy++ 1.0
 #MCU = at90usb1286      # Teensy++ 2.0
-MCU ?= atmega32u2       # TMK converter
+#MCU ?= atmega32u2       # TMK converter
 
 
 # Processor frequency.
@@ -85,10 +85,10 @@ OPT_DEFS += -DBOOTLOADER_SIZE=4096
 #   *Comment out* to disable the options.
 #
 #BOOTMAGIC_ENABLE = yes	# Virtual DIP switch configuration(+1000)
-MOUSEKEY_ENABLE ?= yes	# Mouse keys
+MOUSEKEY_ENABLE ?= no	# Mouse keys
 EXTRAKEY_ENABLE ?= yes	# Audio control and System control
-CONSOLE_ENABLE ?= yes	# Console for debug(+400)
-COMMAND_ENABLE ?= yes	# Commands for debug and configuration
+CONSOLE_ENABLE ?= no	# Console for debug(+400)
+COMMAND_ENABLE ?= no	# Commands for debug and configuration
 #NKRO_ENABLE ?= yes	# USB Nkey Rollover
 
 SRC += next_kbd.c

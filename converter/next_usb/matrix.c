@@ -76,6 +76,10 @@ static bool is_modified = false;
 
 #define NEXT_KBD_PWR_READ (NEXT_KBD_PWR_PIN&(1<<NEXT_KBD_PWR_BIT))
 
+// NeXT in morse, for giggles. includes space lengths so this can just be toggled on/off.
+#define DOT_LENGTH 150
+static int morse_code[15] = { 3,1,1,3, 1,3, 3,1,1,1,1,1,3,3, 3 };
+
 static bool power_state = false;
 
 /* intialize matrix for scanning. should be called once. */
@@ -107,14 +111,16 @@ void matrix_init(void)
 #ifdef NEXT_KBD_INIT_FLASH_LEDS
     dprintf("flashing LEDs:");
     // flash the LEDs after initialization
-    bool leds_on = true;
-    for (uint8_t i = 0; i <= 6; i++)
+    bool leds_on = false;
+    for (uint8_t i = 0; i < 14; i++)
     {
         leds_on = leds_on ? false : true;
         dprintf(" %b", leds_on); 
         next_kbd_set_leds(leds_on, leds_on);
-        _delay_ms(250);
+        for (uint8_t x = 0; x < morse_code[i]; x++ )
+            _delay_ms(DOT_LENGTH);
     }
+    next_kbd_set_leds(false, false);
     dprintf("\n");
 #endif
 

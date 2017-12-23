@@ -56,14 +56,14 @@ POSSIBILITY OF SUCH DAMAGE.
 #define MATRIX_ROWS 12  // keycode bit: 3-0
 #define MATRIX_COLS  8  // keycode bit: 6-4
 
-#define DEBUG_ON_INIT 1
+#define DEBUG_ON_INIT 0
 
 //#define TEENSY_CONFIG 1
-//#define PRO_MICRO_CONFIG 1
-#define TMK_CONFIG 1
+#define PRO_MICRO_CONFIG 1
+//#define TMK_CONFIG 1
 
 // comment out if you don't want the keyboard's LEDs to flash upon initialization or pressing shift
-//#define NEXT_KBD_INIT_FLASH_LEDS
+#define NEXT_KBD_INIT_FLASH_LEDS
 //#define NEXT_KBD_SHIFT_FLASH_LEDS
 
 //============= Start of Arduino Pro Micro Configuration ==============
